@@ -1,7 +1,10 @@
 import streamlit as st
 import pandas as pd
 
-
+st.set_page_config(
+    page_title='Team Records Cleaner',
+    page_icon="📃"
+)
 
 st.title('FHM CSV Cleaner')
 

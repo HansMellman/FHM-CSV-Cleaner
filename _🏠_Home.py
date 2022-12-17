@@ -3,6 +3,11 @@ import pandas as pd
 from PIL import Image
 from st_functions import load_css, st_button
 
+st.set_page_config(
+    page_title="FHM CSV Cleaner",
+    page_icon="🏒"
+)
+
 load_css()
 
 col1, col2, col3 = st.columns(3)
@@ -22,6 +27,9 @@ st_button('twitter', 'https://www.twitter.com/franchisehockey', 'Official FHM Tw
 st_button('twitch', 'https://www.twitch.tv/franchisehockeymanager', 'Official FHM Twitch', icon_size)
 st_button('steam', 'https://store.steampowered.com/app/1937470/Franchise_Hockey_Manager_9/', 'Official FHM9 Steam Page', icon_size)
 st_button('discord', 'https://discord.com/invite/hhaAgZb', 'Official OOTP Discord', icon_size)
+
+
+
 
 
 
