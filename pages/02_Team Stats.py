@@ -1,22 +1,19 @@
 import streamlit as st
 import pandas as pd
 
-st.set_page_config(
-    page_title='Team Stats Cleaner',
-    page_icon="📄"
-)
+st.set_page_config(page_title="Team Stats Cleaner", page_icon="📄")
 
-st.title('FHM CSV Cleaner')
+st.title("FHM CSV Cleaner")
 
-st.subheader('Team Stats')
+st.subheader("Team Stats")
 
 # Load in specific CSV and read them in.
 team_stats = st.file_uploader("Please select the 'Team Stats' CSV")
 if team_stats is not None:
-    if team_stats.name != 'team_stats.csv':
+    if team_stats.name != "team_stats.csv":
         st.write("Please upload the correct team_stats.csv")
-    elif team_stats.name == 'team_stats.csv':
-        team_stats = pd.read_csv(team_stats, sep=';')
+    elif team_stats.name == "team_stats.csv":
+        team_stats = pd.read_csv(team_stats, sep=";")
 
         # Title original CSV and display in app.
         st.header("team_stats.csv")
@@ -66,10 +63,10 @@ if team_stats is not None:
         st.write(nhl_team_stats)
 
         st.download_button(
-            label='Download cleaned CSV',
+            label="Download cleaned CSV",
             data=nhl_team_stats.to_csv(index=False),
-            file_name='team_stats_CONVERTED.csv',
-            mime='text/csv',
-            key='download-csv',
-            help='Click to download the cleaned "team_stats" CSV'
+            file_name="team_stats_CONVERTED.csv",
+            mime="text/csv",
+            key="download-csv",
+            help='Click to download the cleaned "team_stats" CSV',
         )

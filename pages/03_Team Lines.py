@@ -1,22 +1,19 @@
 import streamlit as st
 import pandas as pd
 
-st.set_page_config(
-    page_title='Team Lines Cleaner',
-    page_icon="📄"
-)
+st.set_page_config(page_title="Team Lines Cleaner", page_icon="📄")
 
-st.title('FHM CSV Cleaner')
+st.title("FHM CSV Cleaner")
 
-st.subheader('Team Lines')
+st.subheader("Team Lines")
 
 # Load in specific CSV and read them in.
 team_lines = st.file_uploader("Please select the 'Team Lines' CSV")
 if team_lines is not None:
-    if team_lines.name != 'team_lines.csv':
+    if team_lines.name != "team_lines.csv":
         st.write("Please upload the correct team_lines.csv")
-    elif team_lines.name == 'team_lines.csv':
-        team_lines = pd.read_csv(team_lines, sep=';')
+    elif team_lines.name == "team_lines.csv":
+        team_lines = pd.read_csv(team_lines, sep=";")
 
         # Title original CSV and display in app.
         st.header("team_lines.csv")
@@ -66,10 +63,10 @@ if team_lines is not None:
         st.write(nhl_team_lines)
 
         st.download_button(
-            label='Download cleaned CSV',
+            label="Download cleaned CSV",
             data=nhl_team_lines.to_csv(index=False),
-            file_name='team_lines_CONVERTED.csv',
-            mime='text/csv',
-            key='download-csv',
-            help='Click to download the cleaned "team_lines" CSV'
+            file_name="team_lines_CONVERTED.csv",
+            mime="text/csv",
+            key="download-csv",
+            help='Click to download the cleaned "team_lines" CSV',
         )
